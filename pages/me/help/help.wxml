@@ -1,0 +1,3 @@
+<!--pages/me/help/help.wxml-->
+<button open-type="contact" class="btn" >联系客服</button>
+<button open-type="feedback" class="btn">意见反馈</button>

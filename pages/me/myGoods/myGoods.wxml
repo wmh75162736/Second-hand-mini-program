@@ -1,0 +1,21 @@
+
+
+
+<block wx:for="{{goodsList}}"> 
+<view class="good-wrap">
+  <image class="cover" src="{{item.cover}}"></image>
+  <view>
+    <view>{{item.title}}</view>
+    <view class="stock-number">库存：{{item.stockNumber}}</view>
+    <view class="stock-number">状态：{{item.status==true?'已上架':'已下架'}}</view>
+    <view class="menu-wrap">
+      <button class="but" size="mini" type="primary" bindtap="up" data-index="{{index}}">上架</button>
+      <button class="but" size="mini" type="warn" bindtap="down" data-index="{{index}}">下架</button>
+      <button class="but" size="mini" type="default" bindtap="edit" data-index="{{index}}">编辑</button>
+      <button class="but" size="mini" type="warn" bindtap="delete" data-index="{{index}}">删除</button>
+    </view>
+  </view>
+</view>
+
+
+</block>

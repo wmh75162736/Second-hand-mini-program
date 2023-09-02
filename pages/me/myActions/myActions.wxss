@@ -1,0 +1,152 @@
+.message {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 20rpx 40rpx 20rpx;
+}
+
+/* 左半部分 */
+.left {
+  margin-right: 15rpx;
+}
+.face-img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+}
+/*右半部分*/
+.right {
+  width: 580rpx;
+}
+
+/* 昵称 */
+.nickname {
+  color: #586B94;
+  font-weight: 550;
+  font-size: 34rpx;
+  margin-bottom: 15rpx;
+}
+
+/* 发布时间 、 删除 */
+.time-delete {
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+}
+.time-delete {
+  margin: 15rpx 0rpx 15rpx 0rpx;
+}
+.time {
+  color: #7F7F7F;
+  margin-right: 20rpx;
+}
+.delete {
+  color: #586B94;
+}
+
+/* 互动 模块 */
+.hudong-img{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+.hudong-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #7F7F7F;
+  margin: 15rpx 0rpx 15rpx 0rpx;
+  font-size: 28rpx;
+}
+.hudong-cell {
+  display: flex;
+  flex-direction: row;
+  /* 水平线 */
+  align-items: center;
+}
+
+/* 动态图片 */
+.imags-wrap {
+  margin-top: 10rpx;
+}
+.image-1 {
+  width: 500rpx;
+  height: 300rpx;
+}
+.image-2-3 {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 6rpx;
+}
+.image-4 {
+  width: 240rpx;
+  height: 240rpx;
+  margin-right: 6rpx;
+}
+.image-5-9 {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 6rpx;
+}
+
+/* 点赞列表 */
+.prize-box {
+  background-color: #F7F7F7;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20rpx 20rpx;
+  color: #586B94;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #EDEDED;
+}
+.prize-img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+/* 评论列表 */
+.comment-box {
+  background-color: #F7F7F7;
+  padding: 20rpx 20rpx;
+  font-size: 30rpx;
+}
+.commet {
+  margin-bottom: 20rpx;
+}
+.comment-nickname {
+  color: #586B94;
+}
+
+/* 照相机 */
+.camera-box {
+  text-align: right;
+  margin: 5rpx 20rpx 0rpx 0rpx;
+}
+.camera-img {
+  width: 65rpx;
+  height: 55rpx;
+}
+
+
+.share-button {
+  background-color: #fff;
+  margin: 0 0;
+}
+.share-text {
+  font-weight: 500;
+  font-size: 28rpx;
+}
+
+
+.addreess {
+  color: #586B94;
+  font-size: 30rpx;
+}
+
+.video-cell {
+  width: 400rpx;
+  height: 300rpx;
+}

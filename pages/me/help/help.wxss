@@ -1,0 +1,9 @@
+/* pages/me/help/help.wxss */
+
+.btn{
+  opacity: 0.9;
+  position: relative;
+  top: 350rpx;
+  margin-top: 30rpx;
+  box-shadow:0px 0px 8px rgba(0, 0, 0, .1) inset; 
+} 

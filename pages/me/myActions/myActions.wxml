@@ -1,0 +1,109 @@
+
+<!-- <view class="camera-box" bindtap="toPublish">
+  <image src="/images/camera.png" class="camera-img"></image>
+</view> -->
+
+
+<block wx:for="{{actionsList}}"  wx:for-index="numm" wx:key="index">
+<view class="message">
+
+  <view class="left">
+    <image class="face-img" src="{{item.faceImg}}"></image>
+  </view>
+
+  <view class="right">
+    <view class="nickname">{{item.nickName}}</view>
+    <view bindtap="toDetail" data-id="{{item._id}}">
+      {{item.text}}
+    </view>
+    
+    
+    <view class="imags-wrap">
+
+      <block wx:if="{{item.images.length == 1}}" wx:for="{{item.images}}" wx:for-item="imgItem" wx:key="index">
+        <!-- 单图布局 -->
+        <image src="{{imgItem}}" class="image-1" bindtap="previewImg" data-src="{{imgItem}}" data-index="{{numm}}"></image>
+      </block> 
+
+      <block wx:if="{{item.images.length == 2 || item.images.length ==3}}" wx:for="{{item.images}}" wx:for-item="imgItem" wx:key="index">
+        <!-- 2-3张图布局 -->
+        <image src="{{imgItem}}" class="image-2-3" bindtap="previewImg" data-src="{{imgItem}}" data-index="{{numm}}"></image>
+      </block>
+    
+      <block wx:if="{{item.images.length == 4}}" wx:for="{{item.images}}" wx:for-item="imgItem" wx:key="index">
+        <!-- 4图布局 -->
+        <image src="{{imgItem}}" class="image-4" bindtap="previewImg" data-src="{{imgItem}}" data-index="{{numm}}"></image>
+      </block>
+    
+      <block wx:if="{{item.images.length >= 5}}" wx:for="{{item.images}}" wx:for-item="imgItem" wx:key="index">
+        <!-- 5-9张图布局 -->
+        <image src="{{imgItem}}" class="image-5-9" bindtap="previewImg" data-src="{{imgItem}}" data-index="{{numm}}"></image>
+      </block>
+
+    </view>
+
+
+    <video class="video-cell" wx:if="{{item.video}}" src="{{item.video}}"></video>
+    
+    <view class="time-delete">
+      <view class="time">{{item.time}}</view>
+      <view class="delete" wx:if="{{myOpenid == item._openid}}" catchtap="deleteAction" data-id="{{item._id}}">删除</view>
+    </view>
+
+    <view class="addreess" wx:if="{{item.address}}" bindtap="opendLocation" data-index="{{numm}}">{{item.address}}</view>
+
+    <view class="hudong-box">
+
+      <button open-type="share" size="mini" class="share-button" data-index="{{index}}">
+        <view class="hudong-cell">
+          <image src="/images/share.png" class="hudong-img"></image>
+          <view class="share-text">分享</view>
+        </view>
+      </button>
+
+      <view class="hudong-cell" bindtap="toDetail" data-id="{{item._id}}">
+        <image src="/images/comment_shequ.png" class="hudong-img"></image>
+        <view>{{item.commentList.length>0?item.commentList.length:'评论'}}</view>
+      </view>
+
+      <view class="hudong-cell" catchtap="pirzeAction" data-id="{{item._id}}">
+        <image src="{{item.isPrized?'/images/prize_yes.png':'/images/prize.png'}}    " class="hudong-img"></image>
+        <view>{{item.prizeList.length>0?item.prizeList.length:'点赞'}}</view>
+      </view>
+    </view>
+
+    <!-- 点赞列表 -->
+    <view class="prize-box" wx:if="{{item.prizeList.length != 0}}">
+      <image src="/images/prize-blue.png" class="prize-img"></image>
+
+      <block wx:for="{{item.prizeList}}" wx:key="index" wx:for-item="nickItem" wx:for-index="nickIndex">
+        <view>{{nickItem.nickName}}<text wx:if="{{nickIndex < item.prizeList.length-1}}">,</text></view>
+      </block>
+
+    </view>
+
+    <view class="comment-box" wx:if="{{item.commentList.length > 0}}">
+
+      <block wx:for="{{item.commentList}}" wx:for-item="comItem" wx:for-index="comIndex">
+        <view class="commet" bindlongtap="{{myOpenid == comItem.openid?'delteComment':''}}" data-id="{{item._id}}" data-index="{{comIndex}}">
+          <text class="comment-nickname">{{comItem.nickName}}<text wx:if="{{!comItem.toOpenid}}">：</text>
+          </text>
+            <block wx:if="{{comItem.toOpenid}}">
+              <text>回复</text>
+              <text class="comment-nickname">{{comItem.toNickname}}：</text>
+            </block>
+          <text>{{comItem.text}}</text>
+        </view>
+      </block>
+
+    </view>
+
+  </view>
+
+
+</view>
+
+</block>
+
+
+

@@ -1,0 +1,89 @@
+
+<form bindsubmit="addGood">
+
+  <view class='firstrow'>
+  <text class="font">商 品:</text>
+  <input name="title" value="{{title}}" type="text" class="input" placeholder="在此输入商品标题 品类品牌型号等.."/>
+  </view>
+
+  <view class='line'></view>
+
+  <view class='secondrow'>
+    <text class="font">描 述:</text>
+  <textarea name="text" value="{{text}}" class="input1" placeholder="输入商品详细信息"></textarea>
+</view>
+
+<view class="box">
+  
+  <view class="box-img">
+<view class="title">商品封面图片</view>
+  <view class="img-wrap">
+    <block wx:for="{{cloudCoverImage}}">
+      <view class="one-img">
+        <image src="/images/close.png" class="close-img" bindtap="deleteCoverImage" data-index="{{index}}"></image>
+        <image class="img-choose" src="{{item}}"></image>
+      </view>
+    </block>
+   <!-- 选择图片 -->
+    <view class="one-img" bindtap="chooseCoverImage" wx:if="{{cloudCoverImage.length<1}}">
+      <image class="img-choose" src="/images/add-image.png"></image>
+    </view>
+  </view> 
+
+</view>
+
+<view class="box-img">
+  <view class="title">商品详情图片</view>
+  <view class="img-wrap">
+    <block wx:for="{{cloudDetaiImage}}">
+      <view class="one-img">
+        <image src="/images/close.png" class="close-img" bindtap="deleteDetailImage" data-index="{{index}}"></image>
+        <image class="img-choose" src="{{item}}"></image>
+      </view>
+    </block>
+    <!-- 选择图片 -->
+    <view class="one-img" bindtap="chooseDetailImage" wx:if="{{cloudDetaiImage.length<9}}">
+      <image class="img-choose" src="/images/add-image.png"></image>
+    </view>
+</view>
+</view>
+</view>
+
+<view class='line'></view>
+
+<view class='thirstrow'>
+  <view class="font">选择商
+  品类型:</view>
+  <view class="type-wrap">
+    <block wx:for="{{typeList}}">
+      <view class="type-item {{currentIndex==index?'choose-type':'no-choose'}}" bindtap="getType" data-index="{{index}}">{{item.name}}</view>
+    </block>
+  </view>
+</view>
+  
+  <view class='line'></view>
+
+<view class='firstrow'>
+  <text class="font">售 价:</text>
+  <input name="price" value="{{price}}" type="number" class="input" placeholder="请输入商品价格/元"/>
+</view>
+
+<view class='line'></view>
+
+<view class='firstrow'>
+  <text class="font">数 量:</text>
+  <input name="stockNumber" value="{{stockNumber}}" type="number" class="input" placeholder="请输入商品数量"/>
+</view>
+<view class='line'></view>
+
+<view class='line'></view>
+<view class='firstrow'>
+  <view class="font">联 系:</view>
+  <input name="contact" value="{{contact}}" type="text" class="input" placeholder="在此输入联系方式"/>
+</view>
+
+<button type="warning" form-type="reset" style="margin: 0rpx 20rpx 0rpx 40rpx; background-color: rgb(248, 61, 28) ;">重置</button>
+  <button type="primary" form-type="submit" class="btn2">发布</button>
+  <view style="height: 20rpx;"></view>
+
+</form>
